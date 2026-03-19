@@ -1,146 +1,104 @@
-Game Tournament App
-Description
+# 🎮 Game Tournament App
 
-This project is a fullstack application where users can manage tournaments and games.
+A simple fullstack application for managing tournaments and games, built with .NET Web API and Vanilla JavaScript (DOM + fetch).
 
-The user can:
 
-view all tournaments and their related games
+## 🚀 Features
 
-create new tournaments and games
+📋 View all tournaments and their games
 
-update existing data
+➕ Create new tournaments and matches
 
-delete tournaments and games
+✏️ Update existing data
 
-The application consists of:
+❌ Delete tournaments and matches
 
-a frontend built with HTML, CSS, and JavaScript (no frameworks)
+🔔 Real-time feedback with toast notifications
 
-a backend built with .NET Web API
 
-a database connected via Entity Framework Core
-
-The goal of the project is to demonstrate the full flow from user interaction in the browser to data stored in the database and back to the UI.
-
-How to run the project
-Backend (.NET API)
-
-Open the project in Visual Studio or VS Code
-
-Make sure the database connection string is set in appsettings.json
-
-Run database migrations (if needed):
-
-dotnet ef database update
-
-Start the API:
-
-dotnet run
-
-The API will run on:
-
-https://localhost:7003
-
-http://localhost:5249
-
-Swagger is available at:
-https://localhost:7003/swagger
+## 🧱 Tech Stack
 
 Frontend
-
-Open index.html in your browser
-or run it using Live Server
-
-Make sure the backend is running at the same time
-
-Backend structure
-
-The backend is structured into:
-
-Controllers (handle HTTP requests)
-
-Services (contain business logic)
-
-DTOs (data transfer objects)
-
-Models (entities)
-
-DbContext (database connection)
-
-Controllers are kept thin and delegate logic to services.
-
-Database
-
-The project uses SQL Server with Entity Framework Core.
-
-The database is used to:
-
-store tournaments and games
-
-retrieve data
-
-update data
-
-delete data
-
-Relationship:
-
-One tournament can have multiple games
-
-Endpoints
-Tournaments
-
-GET /api/tournaments → get all
-GET /api/tournaments/{id} → get by id
-POST /api/tournaments → create
-PUT /api/tournaments/{id} → update
-DELETE /api/tournaments/{id} → delete
-
-Games
-
-GET /api/games → get all
-GET /api/games/{id} → get by id
-POST /api/games → create
-PUT /api/games/{id} → update
-DELETE /api/games/{id} → delete
-
-Frontend
-
-The frontend is built using:
 
 HTML
 
 CSS
 
-JavaScript
+JavaScript (Vanilla)
 
-DOM
+DOM manipulation
 
-fetch
+Fetch API
 
-The frontend can:
+Backend
 
-display data from the API
+ASP.NET Core Web API
 
-create new data through forms
+Controllers + Services architecture
 
-update data using a modal
+DTOs
 
-delete data
+Database
 
-show feedback via toast notifications
+SQL Server
 
-How the frontend communicates with the API
+Entity Framework Core
 
-The frontend uses fetch() to communicate with the API.
 
-Example GET:
+## ⚙️ Getting Started
+1. Clone the backend repository
+git clone https://github.com/Johnjr1/GameTournaments
+cd <your-project>
+2. Run the Backend (.NET API)
 
+Make sure you have .NET installed.
+
+dotnet ef database update
+dotnet run
+
+API runs on:
+
+https://localhost:7003
+
+http://localhost:5249
+
+Swagger UI:
+
+https://localhost:7003/swagger
+
+
+3. Run the Frontend
+
+Open:
+
+index.html
+
+Or use Live Server in VS Code.
+
+⚠️ Make sure the backend is running at the same time.
+
+## 📡 API Endpoints
+### 🎯 Tournaments
+Method	Endpoint	Description
+GET	/api/tournaments	Get all tournaments
+GET	/api/tournaments/{id}	Get tournament by ID
+POST	/api/tournaments	Create tournament
+PUT	/api/tournaments/{id}	Update tournament
+DELETE	/api/tournaments/{id}	Delete tournament
+### 🎮 Games
+Method	Endpoint	Description
+GET	/api/games	Get all games
+GET	/api/games/{id}	Get game by ID
+POST	/api/games	Create game
+PUT	/api/games/{id}	Update game
+DELETE	/api/games/{id}	Delete game
+🔄 Frontend ↔ Backend Communication
+
+The frontend communicates with the API using the Fetch API.
+
+#### Example (GET)
 fetch("https://localhost:7003/api/tournaments")
-
-Example POST:
-
+Example (POST)
 fetch("https://localhost:7003/api/tournaments", {
   method: "POST",
   headers: {
@@ -149,63 +107,87 @@ fetch("https://localhost:7003/api/tournaments", {
   body: JSON.stringify(payload)
 });
 
-Data is sent and received as JSON.
+📦 Data is sent and received as JSON.
 
-Games are linked to tournaments using:
+🔗 Games are linked to tournaments using:
 
 game.tournamentId === tournament.id
 
-The DOM is used to:
+### 🧠 The DOM is used to:
 
-dynamically render data
+render data dynamically
 
 handle user input
 
-update the UI
+update the UI in real-time
 
-Reflection
-What went well
+### 🗄️ Database
 
-Clear structure between frontend and backend
+SQL Server with Entity Framework Core
 
-Full CRUD functionality implemented
+Stores tournaments and games
 
-Services made the backend more organized
+Supports full CRUD operations
 
-UI became user-friendly with modals and toast notifications
+Relationship:
 
-What was challenging
+One tournament → many games
+
+### 🧩 Architecture
+
+Controllers → Handle HTTP requests
+
+Services → Business logic
+
+DTOs → Data transfer
+
+Models → Database entities
+
+👉 Controllers are kept thin, logic lives in services.
+
+## 💭 Reflection
+#### ✅ What went well
+
+Clean separation between frontend and backend
+
+Full CRUD functionality working end-to-end
+
+Services improved code structure
+
+UI became user-friendly with modals and toast messages
+
+### ⚠️ Challenges
 
 CORS issues in the beginning
 
 HTTPS certificate issues in Postman
 
-JSON cycle/reference problems between entities
+JSON cycle/reference problems
 
-validation (e.g. future date requirement)
+Validation (e.g. future date requirement)
 
-matching frontend and backend data structures
+Keeping frontend and backend in sync
 
-What I learned
+### 📚 What I learned
 
-how frontend and backend communicate
+Full flow: UI → API → database → UI
 
-how to use services in a .NET API
+How to structure a .NET API using services
 
-how to connect an API to a database
+How to connect frontend with backend using fetch
 
-how to use DOM and fetch in frontend
+How to debug API and network issues
 
-how to debug API and network issues
+Importance of user feedback and error handling
 
-Summary
+### 📌 Summary
 
-This project fulfills the requirements of a fullstack application where:
+This project demonstrates a complete fullstack application where:
 
-a .NET API is used with controllers and services
+✔️ .NET API uses controllers + services
 
-a database is managed using Entity Framework Core
+✔️ Database is handled with EF Core
 
-the frontend communicates with the API using fetch
+✔️ Frontend communicates via fetch
 
-DOM is used to display and update data
+✔️ DOM is used for dynamic UI updates
