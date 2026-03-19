@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Turneringar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<div id="editModal" class="modal hidden">
+  <div class="modal-backdrop" onclick="closeEditModal()"></div>
+
+  <div class="modal-content card">
+    <div class="modal-header">
+      <h2 id="modalTitle">Redigera</h2>
+      <button class="modal-close" onclick="closeEditModal()">✕</button>
+    </div>
+
+    <form id="editForm" class="form-grid">
+      <input type="hidden" id="editType" />
+      <input type="hidden" id="editId" />
+
+      <div id="editTournamentFields">
+        <input type="text" id="editTournamentTitle" placeholder="Titel" />
+        <input type="text" id="editTournamentDescription" placeholder="Beskrivning" />
+        <input type="number" id="editTournamentMaxPlayers" placeholder="Max spelare" />
+        <input type="datetime-local" id="editTournamentDate" />
+      </div>
+
+      <div id="editGameFields">
+        <input type="text" id="editGameTitle" placeholder="Matchtitel" />
+        <input type="datetime-local" id="editGameTime" />
+        <select id="editGameTournamentId">
+          <option value="">Välj turnering</option>
+        </select>
+      </div>
+
+      <button type="submit">Spara ändringar</button>
+    </form>
+  </div>
+</div>
+<div id="toastContainer" class="toast-container"></div>
+<body>
+  <div class="bg-overlay"></div>
+
+  <header class="hero">
+    <div class="hero-content">
+      <p class="tag">Live • Tävling • Sport</p>
+      <h1>Turneringar och matcher</h1>
+      <p class="subtitle">
+        Håll koll på kommande turneringar, matcher och tider på ett snyggt och tydligt sätt.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card form-section">
+      <h2>Skapa ny turnering</h2>
+      <form id="tournamentForm" class="form-grid">
+        <input type="text" id="tournamentTitle" placeholder="Titel" required />
+        <input type="text" id="tournamentDescription" placeholder="Beskrivning" />
+        <input type="number" id="tournamentMaxPlayers" placeholder="Max spelare" required />
+        <input type="datetime-local" id="tournamentDate" required />
+        <button type="submit">Skapa turnering</button>
+      </form>
+    </section>
+
+    <section class="card form-section">
+      <h2>Skapa ny match</h2>
+      <form id="gameForm" class="form-grid">
+        <input type="text" id="gameTitle" placeholder="Matchtitel" required />
+        <input type="datetime-local" id="gameTime" required />
+        <select id="gameTournamentId" required>
+          <option value="">Välj turnering</option>
+        </select>
+        <button type="submit">Skapa match</button>
+      </form>
+    </section>
+
+    <section id="tournament" class="tournament-grid"></section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
