@@ -146,48 +146,62 @@ Models → Database entities
 👉 Controllers are kept thin, logic lives in services.
 
 ## 💭 Reflection
-#### ✅ What went well
 
-Clean separation between frontend and backend
+### ✅ What went well
+- Clean separation between frontend and backend  
+- Full CRUD functionality working end-to-end  
+- Services improved code structure and organization  
+- UI became more user-friendly with modals and toast messages  
 
-Full CRUD functionality working end-to-end
-
-Services improved code structure
-
-UI became user-friendly with modals and toast messages
+---
 
 ### ⚠️ Challenges
+- CORS issues in the beginning  
+- HTTPS certificate issues in Postman  
+- JSON cycle/reference problems between entities  
+- Validation (e.g. future date requirement)  
+- Keeping frontend and backend in sync  
 
-CORS issues in the beginning
-
-HTTPS certificate issues in Postman
-
-JSON cycle/reference problems
-
-Validation (e.g. future date requirement)
-
-Keeping frontend and backend in sync
+---
 
 ### 📚 What I learned
+- The full flow: UI → API → database → UI  
+- How to structure a .NET API using services  
+- How to connect frontend with backend using fetch  
+- How to debug API and network issues  
+- The importance of user feedback and error handling  
 
-Full flow: UI → API → database → UI
+---
 
-How to structure a .NET API using services
+### 🧩 Strengths
+- Clear separation between controllers and services  
+- Fully working CRUD functionality  
+- Good integration between frontend, API, and database  
+- Simple and clean structure that is easy to understand  
 
-How to connect frontend with backend using fetch
+---
 
-How to debug API and network issues
+### ⚠️ Weaknesses
+- Limited validation and error handling in some areas  
+- No authentication or security implemented  
+- Basic UI without advanced features  
+- Some parts of the code could be more modular and reusable  
 
-Importance of user feedback and error handling
+---
+
+### 🚀 Improvements
+- Add authentication and authorization  
+- Improve validation and error handling  
+- Refactor code for better structure and reuse  
+- Add search, filtering, and improved UI features  
+- Deploy the application to a live environment  
+
+---
 
 ### 📌 Summary
-
 This project demonstrates a complete fullstack application where:
 
-✔️ .NET API uses controllers + services
-
-✔️ Database is handled with EF Core
-
-✔️ Frontend communicates via fetch
-
-✔️ DOM is used for dynamic UI updates
+- ✔️ .NET API uses controllers and services  
+- ✔️ Database is managed with Entity Framework Core  
+- ✔️ Frontend communicates with the API using fetch  
+- ✔️ DOM is used for dynamic UI updates  
